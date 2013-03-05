@@ -1,0 +1,49 @@
+[user]
+  name = AUTHORNAME
+  email = AUTHOREMAIL
+  helper = osxkeychain
+
+[color]
+  branch = auto
+  diff = auto
+  pager = true
+  status = auto
+  interactive = auto
+  showbranch = auto
+
+[merge]
+  summary = true
+
+[push]
+  default = tracking
+
+[core]
+  autocrlf = input
+  editor = vim
+  excludesfile = $HOME/.gitignore
+
+[alias]
+  s = status -sb
+  st = status
+  ci = commit
+  ca = commit -a
+  br = branch
+  bra = branch -a
+  sb = show-branch --more=10
+  sba = show-branch -a
+  rb = remove-branch
+  co = checkout
+  df = diff
+  dfc = diff --cached
+  dfw = diff --word-diff=color
+  wc = whatchanged
+  lg = log --graph --pretty=format:'%C(blue)%h%Creset %s %Cgreen(%cr)%Creset %cn %C(yellow)%d%Creset' --abbrev-commit
+  l = log --oneline --decorate --graph
+  cp = cherry-pick
+  gr = grep --break --heading --line-number --color
+  count = !git shortlog -sn
+  # rb = !$DOTFILES/bin/git-remove-branch
+
+[credential]
+  helper = osxkeychain
+
