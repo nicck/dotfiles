@@ -1,2 +1,2 @@
 alias ll='ls -hla'
-alias reload!='. ~/.bashrc'
+alias reload!='. ~/.profile'
