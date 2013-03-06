@@ -1,5 +1,3 @@
-export PATH=/usr/local/bin:${PATH%:/usr/local/bin}
-
 bind "set completion-ignore-case on"
 
 bind '"\e[A": history-search-backward'

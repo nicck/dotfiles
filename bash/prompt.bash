@@ -67,5 +67,8 @@ set_bash_prompt() {
   fi
 }
 
+git_prompt=/usr/local/etc/bash_completion.d/git-prompt.sh
+[ -f $git_prompt ] && source $git_prompt
+
 PROMPT_COMMAND=set_bash_prompt_command
 set_bash_prompt; unset set_bash_prompt
