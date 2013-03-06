@@ -20,7 +20,7 @@
 [core]
   autocrlf = input
   editor = vim
-  excludesfile = $HOME/.gitignore
+  excludesfile = /Users/WHOAMI/.gitignore
 
 [alias]
   s = status -sb

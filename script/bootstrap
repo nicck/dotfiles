@@ -38,6 +38,7 @@ setup_gitconfig () {
 
     sed -e "s/AUTHORNAME/$git_authorname/g" \
         -e "s/AUTHOREMAIL/$git_authoremail/g" \
+        -e "s/WHOAMI/$(whoami)/g" \
         git/gitconfig.symlink.example > git/gitconfig.symlink
 
     success 'gitconfig'
