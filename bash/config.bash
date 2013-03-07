@@ -3,6 +3,8 @@ bind "set completion-ignore-case on"
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
+# export ARCHFLAGS='-arch x86_64'
+
 export LC_CTYPE=ru_RU.UTF-8
 
 export VISUAL=vim
