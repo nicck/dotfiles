@@ -35,3 +35,8 @@ defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+# Terminal
+/usr/libexec/PlistBuddy \
+  -c 'Set "Window Settings:Basic:shellExitAction" 1' \
+  ~/Library/Preferences/com.apple.Terminal.plist
