@@ -15,3 +15,6 @@ defaults read $plist_file > "/tmp/txt_plists/$plist_name.new"
 git diff --no-index -U16 \
   "/tmp/txt_plists/$plist_name.old" \
   "/tmp/txt_plists/$plist_name.new"
+
+rm "/tmp/txt_plists/$plist_name.old"
+rm "/tmp/txt_plists/$plist_name.new"
