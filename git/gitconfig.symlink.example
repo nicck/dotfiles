@@ -41,13 +41,14 @@
   dfc = !git dc
   wc = whatchanged
   lg = log --graph --pretty=format:'%C(blue)%h%Creset %s %Cgreen(%cr)%Creset %cn %C(yellow)%d%Creset' --abbrev-commit
-  l = log --oneline --decorate --graph
+  l = log --oneline --decorate
   cp = cherry-pick
-  gr = grep --break --heading --line-number --color
+  gr = grep --break --line-number --color
   count = !git shortlog -sn
   # rb = !$DOTFILES/bin/git-remove-branch
   last = log --since '1 day ago' --pretty=format:\"%C(yellow)%h %C(blue)%cr%C(red)%d %C(reset)%s%C(green) [%cn]\" --decorate --date=short
   last-branch = !git for-each-ref --sort=-committerdate --format='%(committerdate:relative) %(refname:short) [%(committername)]' | head
+  build-number = !echo $(git log --oneline | wc -l)
 
 [credential]
   helper = osxkeychain
