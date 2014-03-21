@@ -1,4 +1,4 @@
-Dotfiles based on [holman](https://github.com/holman/dotfiles) [dotfiles](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/) but works with bash instead zsh.
+Dotfiles based on [holman](https://github.com/holman/dotfiles) [dotfiles](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/) but it works with bash instead zsh.
 
 ## install
 
