@@ -1,0 +1,33 @@
+#!/bin/bash
+
+set -e
+
+readonly REMOTE=heroku
+
+if [ $# -lt 1 ]; then
+  echo "usage: $(basename $0) <backup_id>" >&2
+  echo "example: heroku-db-sync b010" >&2
+  heroku pgbackups -r "$REMOTE"
+  exit 1
+fi
+
+readonly BACKUP_ID=$1
+
+function development_db_name() {
+  cat config/database.yml | \
+    grep development --after-context=3 | \
+    grep database | \
+    awk '{ print $2 }'
+}
+
+function restore_remote_db() {
+  curl -o latest.dump $(heroku pgbackups:url $BACKUP_ID -r $REMOTE)
+  pg_restore --verbose --clean --no-acl --no-owner -h localhost -d $(development_db_name) latest.dump
+}
+
+function main() {
+  restore_remote_db || true
+  rm latest.dump
+}
+
+main
