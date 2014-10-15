@@ -7,7 +7,7 @@ mkdir "/tmp/txt_plists" 2> /dev/null
 
 defaults read $plist_file > "/tmp/txt_plists/$plist_name.old"
 
-echo "  [ ⌥, ] Change what you need in application config and press enter:"
+echo "  [ ⌥ , ] Change what you need in application config and press enter:"
 read
 
 defaults read $plist_file > "/tmp/txt_plists/$plist_name.new"
