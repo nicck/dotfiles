@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-keep_branches = %w(master production information_evolution beta preview)
+keep_branches = %w(master production staging beta preview demo)
 
 current_branch = `git branch`.lines.map(&:strip)
   .detect { |l| l.include?('* ') }.sub(/\A\* /, '')
@@ -13,16 +13,14 @@ puts 'Fetching merged branches...'
 
 system 'git remote prune origin'
 
-# remote_branches=$(git branch -r --merged | grep -v '/master$' | grep -v "/$current_branch$" | grep -v "/$production_branch$")
 remote_branches = `git branch -r --merged`.lines.map(&:strip)
   .reject { |l| keep_branches.any? { |branch| l.include?("/#{branch}")  } }
 
-# local_branches=$(git branch --merged | grep -v 'master$' | grep -v "$current_branch$" | grep -v "$production_branch$")
 local_branches = `git branch --merged`.lines.map(&:strip)
   .reject { |l| keep_branches.any? { |branch| l.sub(/\A\* /, '') == branch} }
 
 if remote_branches.empty? && local_branches.empty?
-  puts 'No existing branches have been merged into $current_branch.'
+  puts "No existing branches have been merged into #{current_branch}."
   exit
 end
 
