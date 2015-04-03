@@ -26,8 +26,8 @@
 [alias]
   s = status -sb
   st = status
-  ci = commit
-  ca = commit -a
+  ci = commit --verbose
+  ca = commit -a --verbose
   bl = blame -MwC
   br = branch
   bra = branch -a
