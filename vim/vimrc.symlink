@@ -41,7 +41,7 @@ set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 " use emacs-style tab completion when selecting files, etc
-set wildmode=longest,list
+set wildmode=longest,list,full
 
 " make tab completion for files/buffers act like bash
 set wildmenu
@@ -49,4 +49,20 @@ set wildmenu
 "let mapleader=","
 
 :set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+
+" tab-completion
+function! Tab_Or_Complete()
+  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+    return "\<C-N>"
+  else
+    return "\<Tab>"
+  endif
+endfunction
+
+:inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
+
+" paste-toggle
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
 
