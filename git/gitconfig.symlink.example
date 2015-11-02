@@ -15,6 +15,9 @@
   summary = true
   conflictstyle = diff3
 
+[commit]
+  template = /Users/WHOAMI/.gitcommit
+
 [push]
   default = tracking
 
