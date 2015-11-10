@@ -5,3 +5,5 @@ nvm_command=$(brew --prefix nvm)/nvm.sh
 
 completion=/usr/local/etc/bash_completion.d/nvm
 [ -f $completion ] && source $completion
+
+eval "$(npm completion)"
