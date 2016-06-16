@@ -25,6 +25,7 @@
   autocrlf = input
   editor = vim
   excludesfile = /Users/WHOAMI/.gitignore
+  quotepath = false
 
 [alias]
   s = status -sb
@@ -47,12 +48,47 @@
   l = log --oneline --decorate
   cp = cherry-pick
   gr = grep --break --line-number --color
+  gro = "!grof() { subl $(git grep --name-only \"$1\"); }; grof"
   count = !git shortlog -sn
-  # rb = !$DOTFILES/bin/git-remove-branch
   last = log --since '1 day ago' --pretty=format:\"%C(yellow)%h %C(blue)%cr%C(red)%d %C(reset)%s%C(green) [%cn]\" --decorate --date=short
   last-branch = !git for-each-ref --sort=-committerdate --format='%(committerdate:relative) %(refname:short) [%(committername)]' | head
   build-number = !echo $(git log --oneline | wc -l)
+  build-hash = !git rev-parse --short HEAD
+  shallow-clone = clone --single-branch --depth 1
+  su = submodule update
+  sui = submodule update --init
 
 [credential]
   helper = osxkeychain
 
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
+
+[stash]
+  showPatch = true
+
+[diff]
+  compactionHeuristic = true
+
+[interactive]
+  diffFilter = diff-highlight
+
+# ln -s `brew --prefix git`/share/git-core/contrib/diff-highlight/diff-highlight ~/.dotfiles/bin/diff-highlight
+[pager]
+  log = diff-highlight | less -r
+  show = diff-highlight | less -r
+  diff = diff-highlight | less -r
+
+[color "diff-highlight"]
+  # oldHighlight = dim
+  # oldReset = nodim
+  oldNormal = "dim red normal"
+  oldHighlight = "bold red normal"
+  newNormal = "dim green normal"
+  newHighlight = "bold green normal"
+  # oldNormal = "red normal"
+  # oldHighlight = "bold #dd4444 #550000"
+  # newNormal = "green normal"
+  # newHighlight = "bold green #005500"
