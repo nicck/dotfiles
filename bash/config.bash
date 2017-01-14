@@ -5,7 +5,12 @@ bind '"\e[B": history-search-forward'
 
 export ARCHFLAGS='-arch x86_64'
 
-export LC_CTYPE=ru_RU.UTF-8
+# export LC_CTYPE=ru_RU.UTF-8
+export LANG=en_US
+export LC_CTYPE=en_US.UTF-8
+# /etc/ssh_config
+# Host *
+#   SendEnv LANG LC_*
 
 export VISUAL=vim
 export EDITOR="$VISUAL"

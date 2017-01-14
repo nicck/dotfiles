@@ -7,3 +7,7 @@ vendor/bundle
 .fs.yml
 lib/tasks/belongs_to.rake
 .rubocop.yml
+.vscode
+_inbox
+yarn.lock
+npm-debug.log
