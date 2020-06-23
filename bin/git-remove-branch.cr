@@ -25,6 +25,10 @@ def get_current_branch(local_branches)
     .sub(/\A\* /, "")
 end
 
+def sync_remote_branches
+  `git remote prune origin`
+end
+
 def get_remote_branches(keep_branches)
   `git branch -r --merged`
     .lines
@@ -54,11 +58,14 @@ end
 
 keep_branches = keep_branches_config
 
-local_branches = future { get_local_branches(keep_branches) }
-remote_branches = future { get_remote_branches(keep_branches) }
+remote_branches = future {
+  sync_remote_branches
+  get_remote_branches(keep_branches)
+}
 
-remote_branches = remote_branches.get
-remote_branches_to_remove = remote_branches
+local_branches = future { get_local_branches(keep_branches) }
+
+remote_branches_to_remove = remote_branches.get
   .reject { |l| keep_branches.any? { |branch| l.includes?("/#{branch}") } }
 
 local_branches = local_branches.get
@@ -96,17 +103,17 @@ if local_branches_to_remove.any?
   puts
 end
 
-print "Continue? (y/n): "
+print "Continue? (Y/n): "
 choice = gets.to_s.strip
 puts
 
-if choice.downcase != "y"
+if choice.downcase == "n"
   puts "No branches removed."
   exit 0
 end
 
 remove_local_branches(local_branches_to_remove)
-remove_remote_branches(remote_branches_to_remove).each &.get
+remove_remote_branches(remote_branches_to_remove).each(&.get)
 
 puts "Branches removed"
 
