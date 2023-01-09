@@ -1,1 +1,0 @@
-/Users/nicck/Library/Mobile Documents/com~apple~CloudDocs/Sync/dotfiles/zsh

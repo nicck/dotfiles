@@ -1,0 +1,53 @@
+[user]
+  name = Nikolai Abdrafikov
+  email = nicck.olay@gmail.com
+
+[color]
+  branch = auto
+  diff = auto
+  pager = true
+  status = auto
+  interactive = auto
+  showbranch = auto
+
+[merge]
+  summary = true
+  conflictstyle = diff3
+
+[push]
+  default = tracking
+
+[core]
+  autocrlf = input
+  editor = vim
+  excludesfile = HOME_DIR/.gitignore
+  quotepath = false
+
+[diff]
+  indentHeuristic = on
+  colorMoved = default
+
+[alias]
+  st = status
+  ci = commit
+  ca = commit -a
+  br = branch
+  bra = branch -a
+  sb = show-branch --more=20
+  sba = show-branch -a --more=20
+  co = checkout
+  sw = switch
+  df = diff
+  dfc = diff --cached
+  lg = log --oneline --decorate
+  cp = cherry-pick
+  shallow-clone = clone --single-branch --depth 1
+
+[pager]
+  diff = delta --color-only --light
+  log = delta --color-only --light
+  reflog = delta --color-only --light
+  show = delta --color-only --light
+
+[pull]
+  ff = only

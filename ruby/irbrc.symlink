@@ -1,4 +1,0 @@
-Hirb.enable       if require 'hirb'
-AwesomePrint.irb! if require 'awesome_print'
-
-puts '~/.irbrc loaded'
