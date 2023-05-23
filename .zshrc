@@ -6,7 +6,7 @@ zstyle ':completion:*' insert-tab pending
 
 # Download Znap, if it's not there yet.
 [[ -f ~/.dotfiles/zsh-snap/znap.zsh ]] ||
-    git clone --depth 1 -- \
+    git clone --depth 1 --branch '22.06.22' -- \
         https://github.com/marlonrichert/zsh-snap.git ~/.dotfiles/zsh-snap
 
 source ~/.dotfiles/zsh-snap/znap.zsh  # Start Znap
