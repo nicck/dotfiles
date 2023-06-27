@@ -42,12 +42,13 @@
   lg = log --oneline --decorate
   cp = cherry-pick
   shallow-clone = clone --single-branch --depth 1
+  push-force = push --force-with-lease
 
 [pager]
-  diff = delta --color-only --light
-  log = delta --color-only --light
-  reflog = delta --color-only --light
-  show = delta --color-only --light
+  diff = delta --color-only
+  log = delta --color-only
+  reflog = delta --color-only
+  show = delta --color-only
 
 [pull]
   ff = only
