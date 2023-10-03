@@ -12,4 +12,16 @@ starship preset pure-preset -o ~/.config/starship.toml
 mkdir -p ~/.cache/starship
 starship init nu > ~/.cache/starship/init.nu
 
-nu -e '"\nuse ~/.cache/starship/init.nu\nalias ll = ls -a\n" | save --append $nu.config-path; exit'
+nu -e '"\nuse ~/.cache/starship/init.nu\n" | save --append $nu.config-path; exit'
+
+curl -SL -O https://github.com/rsteube/carapace-bin/releases/download/v0.27.0/carapace-bin_linux_amd64.tar.gz \
+    && tar -xf carapace-bin_linux_amd64.tar.gz \
+    && sudo mv carapace /usr/local/bin/ \
+    && rm carapace-bin_linux_amd64.tar.gz
+
+mkdir -p ~/.cache/carapace
+carapace _carapace nushell > ~/.cache/carapace/init.nu
+
+nu -e '"\source ~/.cache/carapace/init.nu\n" | save --append $nu.config-path; exit'
+
+nu -e '"\nalias ll = ls -a\n" | save --append $nu.config-path; exit'
