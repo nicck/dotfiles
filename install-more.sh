@@ -24,4 +24,4 @@ carapace _carapace nushell > ~/.cache/carapace/init.nu
 
 nu -e '"\nsource ~/.cache/carapace/init.nu\n" | save --append $nu.config-path; exit'
 
-nu -e '"\nalias ll = ls -a\n" | save --append $nu.config-path; exit'
+nu -e '"\nalias ll = exa -a -lbF --git\n" | save --append $nu.config-path; exit'
