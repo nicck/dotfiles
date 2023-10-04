@@ -22,6 +22,6 @@ curl -SL -O https://github.com/rsteube/carapace-bin/releases/download/v0.27.0/ca
 mkdir -p ~/.cache/carapace
 carapace _carapace nushell > ~/.cache/carapace/init.nu
 
-nu -e '"\source ~/.cache/carapace/init.nu\n" | save --append $nu.config-path; exit'
+nu -e '"\nsource ~/.cache/carapace/init.nu\n" | save --append $nu.config-path; exit'
 
 nu -e '"\nalias ll = ls -a\n" | save --append $nu.config-path; exit'
