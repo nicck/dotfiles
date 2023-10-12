@@ -27,4 +27,10 @@ nu -e '"\nsource ~/.cache/carapace/init.nu\n" | save --append $nu.config-path; e
 nu -e '"\nalias ll = exa -a -lbF --git\n" | save --append $nu.config-path; exit'
 
 curl -SL -O https://github.com/abs-lang/abs/releases/download/2.6.0/abs-linux-amd64 \
+    && chmod +x abs-linux-amd64 \
     && sudo mv abs-linux-amd64 /usr/local/bin/abs
+
+curl -SL -O https://nojs.murex.rocks/bin/latest/murex-linux-amd64.gz \
+    && gunzip murex-linux-amd64.gz \
+    && chmod +x murex-linux-amd64 \
+    && sudo mv murex-linux-amd64 /usr/local/bin/murex
