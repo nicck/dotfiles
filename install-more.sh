@@ -1,7 +1,8 @@
-curl -SL -O https://github.com/nushell/nushell/releases/download/0.85.0/nu-0.85.0-x86_64-unknown-linux-gnu.tar.gz \
-    && tar -xf nu-0.85.0-x86_64-unknown-linux-gnu.tar.gz \
-    && sudo cp nu-0.85.0-x86_64-unknown-linux-gnu/nu /usr/local/bin/ \
-    && rm nu-0.85.0-x86_64-unknown-linux-gnu.tar.gz
+curl -SL -O https://github.com/nushell/nushell/releases/download/0.86.0/nu-0.86.0-x86_64-unknown-linux-gnu.tar.gz \
+    && tar -xf nu-0.86.0-x86_64-unknown-linux-gnu.tar.gz \
+    && sudo cp nu-0.86.0-x86_64-unknown-linux-gnu/nu /usr/local/bin/ \
+    && rm nu-0.86.0-x86_64-unknown-linux-gnu.tar.gz \
+    && rm -r nu-0.86.0-x86_64-unknown-linux-gnu
 
 curl -sS -o install-starship.sh https://starship.rs/install.sh \
     && chmod +x ./install-starship.sh \
