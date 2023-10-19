@@ -42,3 +42,9 @@ curl -SL -O https://github.com/Nukesor/pueue/releases/download/v3.1.2/pueue-linu
 curl -SL -O https://github.com/Nukesor/pueue/releases/download/v3.1.2/pueued-linux-x86_64 \
     && chmod +x pueued-linux-x86_64 \
     && sudo mv pueued-linux-x86_64 /usr/local/bin/pueued
+
+curl -SL -O https://github.com/upx/upx/releases/download/v4.1.0/upx-4.1.0-amd64_linux.tar.xz \
+    && tar -xf upx-4.1.0-amd64_linux.tar.xz \
+    && sudo cp upx-4.1.0-amd64_linux/upx /usr/local/bin/ \
+    && rm upx-4.1.0-amd64_linux.tar.xz \
+    && rm -r upx-4.1.0-amd64_linux
