@@ -48,3 +48,7 @@ curl -SL -O https://github.com/upx/upx/releases/download/v4.1.0/upx-4.1.0-amd64_
     && sudo cp upx-4.1.0-amd64_linux/upx /usr/local/bin/ \
     && rm upx-4.1.0-amd64_linux.tar.xz \
     && rm -r upx-4.1.0-amd64_linux
+
+curl -LO https://fossil-scm.org/home/uv/fossil-linux-x64-2.22.tar.gz \
+    && tar -xaf fossil-linux-x64-2.22.tar.gz \
+    && sudo mv fossil /usr/local/bin/
