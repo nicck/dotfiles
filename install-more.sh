@@ -34,3 +34,11 @@ curl -SL -O https://nojs.murex.rocks/bin/latest/murex-linux-amd64.gz \
     && gunzip murex-linux-amd64.gz \
     && chmod +x murex-linux-amd64 \
     && sudo mv murex-linux-amd64 /usr/local/bin/murex
+
+curl -SL -O https://github.com/Nukesor/pueue/releases/download/v3.1.2/pueue-linux-x86_64 \
+    && chmod +x pueue-linux-x86_64 \
+    && sudo mv pueue-linux-x86_64 /usr/local/bin/pueue
+
+curl -SL -O https://github.com/Nukesor/pueue/releases/download/v3.1.2/pueued-linux-x86_64 \
+    && chmod +x pueued-linux-x86_64 \
+    && sudo mv pueued-linux-x86_64 /usr/local/bin/pueued
