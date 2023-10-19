@@ -6,7 +6,8 @@ curl -SL -O https://github.com/nushell/nushell/releases/download/0.86.0/nu-0.86.
 
 curl -sS -o install-starship.sh https://starship.rs/install.sh \
     && chmod +x ./install-starship.sh \
-    && sudo ./install-starship.sh -y
+    && sudo ./install-starship.sh -y \
+    && rm ./install-starship.sh
 
 starship preset pure-preset -o ~/.config/starship.toml
 
