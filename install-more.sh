@@ -55,3 +55,9 @@ curl -SL -O https://github.com/upx/upx/releases/download/v4.1.0/upx-4.1.0-amd64_
 curl -LO https://fossil-scm.org/home/uv/fossil-linux-x64-2.22.tar.gz \
     && tar -xaf fossil-linux-x64-2.22.tar.gz \
     && sudo mv fossil /usr/local/bin/
+
+curl -LO https://github.com/martinvonz/jj/releases/download/v0.15.1/jj-v0.15.1-x86_64-unknown-linux-musl.tar.gz \
+    && mkdir jj-linux-musl \
+    && tar -xaf jj-v0.15.1-x86_64-unknown-linux-musl.tar.gz -C jj-linux-musl \
+    && sudo mv jj-linux-musl/jj /usr/local/bin/ \
+    && rm -r jj-linux-musl
