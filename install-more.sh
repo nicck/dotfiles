@@ -61,3 +61,10 @@ curl -LO https://github.com/martinvonz/jj/releases/download/v0.15.1/jj-v0.15.1-x
     && tar -xaf jj-v0.15.1-x86_64-unknown-linux-musl.tar.gz -C jj-linux-musl \
     && sudo mv jj-linux-musl/jj /usr/local/bin/ \
     && rm -r jj-linux-musl
+
+curl -LO https://github.com/Wilfred/difftastic/releases/download/0.57.0/difft-x86_64-unknown-linux-gnu.tar.gz \
+    && mkdir tmp \
+    && tar -xaf difft-x86_64-unknown-linux-gnu.tar.gz -C tmp \
+    && sudo mv tmp/difft /usr/local/bin/ \
+    && rm difft-x86_64-unknown-linux-gnu.tar.gz \
+    && rm -r tmp
