@@ -1,3 +1,15 @@
+# Check if locale-gen is available
+if ! command -v locale-gen &> /dev/null; then
+    # Install locales package if locale-gen is missing
+    sudo apt-get update && sudo apt-get install -y locales
+fi
+
+# Check if the locale is already generated
+if ! locale -a | grep -qi 'en_US.UTF'; then
+    # Generate the locale if it's missing
+    sudo locale-gen en_US.UTF-8
+fi
+
 # matches case insensitive for lowercase
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
