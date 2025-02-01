@@ -68,3 +68,10 @@ curl -LO https://github.com/Wilfred/difftastic/releases/download/0.57.0/difft-x8
     && sudo mv tmp/difft /usr/local/bin/ \
     && rm difft-x86_64-unknown-linux-gnu.tar.gz \
     && rm -r tmp
+
+curl -LO https://github.com/extrawurst/gitui/releases/download/v0.27.0/gitui-linux-x86_64.tar.gz \
+    && mkdir gitui \
+    && tar -xaf gitui-linux-x86_64.tar.gz -C gitui
+    && sudo mv gitui/gitui /usr/local/bin/ \
+    && rm gitui-linux-x86_64.tar.gz \
+    && rm -r gitui
