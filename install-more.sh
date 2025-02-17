@@ -75,3 +75,8 @@ curl -LO https://github.com/extrawurst/gitui/releases/download/v0.27.0/gitui-lin
     && sudo mv gitui/gitui /usr/local/bin/ \
     && rm gitui-linux-x86_64.tar.gz \
     && rm -r gitui
+
+curl -LO https://github.com/pyaillet/doggy/releases/download/v0.5.2/doggy-0.5.2-linux-amd64.tar.gz \
+    && tar xf doggy-0.5.2-linux-amd64.tar.gz \
+    && sudo mv doggy /usr/local/bin/ \
+    && rm doggy-0.5.2-linux-amd64.tar.gz
