@@ -85,3 +85,7 @@ curl -LO https://github.com/wagoodman/dive/releases/download/v0.12.0/dive_0.12.0
     && tar -zxvf dive_0.12.0_linux_amd64.tar.gz dive \
     && sudo mv dive /usr/local/bin/ \
     && rm dive_0.12.0_linux_amd64.tar.gz
+
+curl -LO https://dystroy.org/broot/download/x86_64-linux/broot \
+    && chmod +x broot \
+    && sudo mv broot /usr/local/bin/
