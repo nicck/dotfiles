@@ -89,3 +89,10 @@ curl -LO https://github.com/wagoodman/dive/releases/download/v0.12.0/dive_0.12.0
 curl -LO https://dystroy.org/broot/download/x86_64-linux/broot \
     && chmod +x broot \
     && sudo mv broot /usr/local/bin/
+
+curl -LO https://github.com/yorukot/superfile/releases/download/v1.1.7.1/superfile-linux-v1.1.7.1-amd64.tar.gz \
+    && mkdir spf \
+    && tar -xaf superfile-linux-v1.1.7.1-amd64.tar.gz -C spf \
+    && sudo mv spf/dist/superfile-linux-v1.1.7.1-amd64/spf \
+    && rm superfile-linux-v1.1.7.1-amd64.tar.gz \
+    && rm -r spf
