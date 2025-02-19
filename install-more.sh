@@ -76,11 +76,6 @@ curl -LO https://github.com/extrawurst/gitui/releases/download/v0.27.0/gitui-lin
     && rm gitui-linux-x86_64.tar.gz \
     && rm -r gitui
 
-curl -LO https://github.com/pyaillet/doggy/releases/download/v0.5.2/doggy-0.5.2-linux-amd64.tar.gz \
-    && tar xf doggy-0.5.2-linux-amd64.tar.gz \
-    && sudo mv doggy /usr/local/bin/ \
-    && rm doggy-0.5.2-linux-amd64.tar.gz
-
 curl -LO https://github.com/wagoodman/dive/releases/download/v0.12.0/dive_0.12.0_linux_amd64.tar.gz \
     && tar -zxvf dive_0.12.0_linux_amd64.tar.gz dive \
     && sudo mv dive /usr/local/bin/ \
@@ -93,6 +88,13 @@ curl -LO https://dystroy.org/broot/download/x86_64-linux/broot \
 curl -LO https://github.com/yorukot/superfile/releases/download/v1.1.7.1/superfile-linux-v1.1.7.1-amd64.tar.gz \
     && mkdir spf \
     && tar -xaf superfile-linux-v1.1.7.1-amd64.tar.gz -C spf \
-    && sudo mv spf/dist/superfile-linux-v1.1.7.1-amd64/spf \
+    && sudo mv spf/dist/superfile-linux-v1.1.7.1-amd64/spf /usr/local/bin/ \
     && rm superfile-linux-v1.1.7.1-amd64.tar.gz \
     && rm -r spf
+
+curl -LO https://github.com/sxyazi/yazi/releases/download/v25.2.11/yazi-x86_64-unknown-linux-musl.zip \
+    && unzip yazi-x86_64-unknown-linux-musl.zip \
+    && sudo mv yazi-x86_64-unknown-linux-musl/yazi /usr/local/bin/ \
+    && sudo mv yazi-x86_64-unknown-linux-musl/ya /usr/local/bin/ \
+    && rm yazi-x86_64-unknown-linux-musl.zip \
+    && rm -r yazi-x86_64-unknown-linux-musl
