@@ -71,7 +71,7 @@ curl -LO https://github.com/Wilfred/difftastic/releases/download/0.57.0/difft-x8
 
 curl -LO https://github.com/extrawurst/gitui/releases/download/v0.27.0/gitui-linux-x86_64.tar.gz \
     && mkdir gitui \
-    && tar -xaf gitui-linux-x86_64.tar.gz -C gitui
+    && tar -xaf gitui-linux-x86_64.tar.gz -C gitui \
     && sudo mv gitui/gitui /usr/local/bin/ \
     && rm gitui-linux-x86_64.tar.gz \
     && rm -r gitui
@@ -98,3 +98,19 @@ curl -LO https://github.com/sxyazi/yazi/releases/download/v25.2.11/yazi-x86_64-u
     && sudo mv yazi-x86_64-unknown-linux-musl/ya /usr/local/bin/ \
     && rm yazi-x86_64-unknown-linux-musl.zip \
     && rm -r yazi-x86_64-unknown-linux-musl
+
+mkdir -p ~/.local/bin
+
+curl -LO https://github.com/kdash-rs/kdash/releases/download/v0.6.1/kdash-linux.tar.gz \
+    && mkdir kdash-linux \
+    && tar -xaf kdash-linux.tar.gz -C kdash-linux \
+    && sudo mv kdash-linux/kdash ~/.local/bin/ \
+    && rm kdash-linux.tar.gz \
+    && rm -r kdash-linux
+
+curl -LO https://github.com/zyedidia/micro/releases/download/v2.0.14/micro-2.0.14-linux64-static.tar.gz \
+    && mkdir micro-2.0.14-linux64 \
+    && tar -xaf micro-2.0.14-linux64-static.tar.gz -C micro-2.0.14-linux64 \
+    && sudo mv micro-2.0.14-linux64/micro-2.0.14/micro ~/.local/bin/ \
+    && rm micro-2.0.14-linux64-static.tar.gz \
+    && rm -r micro-2.0.14-linux64
