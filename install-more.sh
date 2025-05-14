@@ -1,8 +1,17 @@
-curl -SL -O https://github.com/nushell/nushell/releases/download/0.92.0/nu-0.92.0-x86_64-unknown-linux-musl.tar.gz \
-    && tar -xf nu-0.92.0-x86_64-unknown-linux-musl.tar.gz \
-    && sudo cp nu-0.92.0-x86_64-unknown-linux-musl/nu /usr/local/bin/ \
-    && rm nu-0.92.0-x86_64-unknown-linux-musl.tar.gz \
-    && rm -r nu-0.92.0-x86_64-unknown-linux-musl
+# eget
+
+curl -o eget.sh https://zyedidia.github.io/eget.sh
+if echo "0e64b8a3c13f531da005096cc364ac77835bda54276fedef6c62f3dbdc1ee919  eget.sh" | shasum -a 256 -c -
+    then bash eget.sh
+    else echo "eget.sh SHA256 does not match"
+fi
+rm ./eget.sh
+
+# nushell
+
+sudo ./eget nushell/nushell --to=/usr/local/bin --asset="linux-musl" --file=nu
+
+# starship
 
 curl -sS -o install-starship.sh https://starship.rs/install.sh \
     && chmod +x ./install-starship.sh \
@@ -16,101 +25,46 @@ starship init nu > ~/.cache/starship/init.nu
 
 nu -e '"\nuse ~/.cache/starship/init.nu\n" | save --append $nu.config-path; exit'
 
-curl -SL -O https://github.com/carapace-sh/carapace-bin/releases/download/v1.0.0/carapace-bin_linux_amd64.tar.gz \
-    && tar -xf carapace-bin_linux_amd64.tar.gz \
-    && sudo mv carapace /usr/local/bin/ \
-    && rm carapace-bin_linux_amd64.tar.gz
+# carapace
+
+sudo ./eget carapace-sh/carapace-bin --to=/usr/local/bin --asset="tar.gz" --file=carapace
 
 mkdir -p ~/.cache/carapace
 carapace _carapace nushell > ~/.cache/carapace/init.nu
 
 nu -e '"\nsource ~/.cache/carapace/init.nu\n" | save --append $nu.config-path; exit'
 
+# exa ll alias
+
 nu -e '"\nalias ll = exa -a -lbF --git\n" | save --append $nu.config-path; exit'
 # nu -e '"\ndef ll [] { ls | sort-by type }\n" | save --append $nu.config-path; exit'
 
-curl -SL -O https://github.com/abs-lang/abs/releases/download/2.6.0/abs-linux-amd64 \
-    && chmod +x abs-linux-amd64 \
-    && sudo mv abs-linux-amd64 /usr/local/bin/abs
+# .local/bin
+
+mkdir -p ~/.local/bin
+
+./eget abs-lang/abs --to=~/.local/bin
+./eget Nukesor/pueue --to=~/.local/bin --asset="pueue-"
+./eget Nukesor/pueue --to=~/.local/bin --asset="pueued-"
+./eget upx/upx --to=~/.local/bin
+./eget martinvonz/jj --to=~/.local/bin
+./eget Wilfred/difftastic --to=~/.local/bin
+./eget extrawurst/gitui --to=~/.local/bin
+./eget wagoodman/dive --to=~/.local/bin
+./eget yorukot/superfile --to=~/.local/bin
+./eget sxyazi/yazi --to=~/.local/bin
+./eget kdash-rs/kdash --to=~/.local/bin
+./eget zyedidia/micro --to=~/.local/bin
 
 curl -SL -O https://nojs.murex.rocks/bin/latest/murex-linux-amd64.gz \
     && gunzip murex-linux-amd64.gz \
     && chmod +x murex-linux-amd64 \
     && sudo mv murex-linux-amd64 /usr/local/bin/murex
 
-curl -SL -O https://github.com/Nukesor/pueue/releases/download/v3.1.2/pueue-linux-x86_64 \
-    && chmod +x pueue-linux-x86_64 \
-    && sudo mv pueue-linux-x86_64 /usr/local/bin/pueue
-
-curl -SL -O https://github.com/Nukesor/pueue/releases/download/v3.1.2/pueued-linux-x86_64 \
-    && chmod +x pueued-linux-x86_64 \
-    && sudo mv pueued-linux-x86_64 /usr/local/bin/pueued
-
-curl -SL -O https://github.com/upx/upx/releases/download/v4.1.0/upx-4.1.0-amd64_linux.tar.xz \
-    && tar -xf upx-4.1.0-amd64_linux.tar.xz \
-    && sudo cp upx-4.1.0-amd64_linux/upx /usr/local/bin/ \
-    && rm upx-4.1.0-amd64_linux.tar.xz \
-    && rm -r upx-4.1.0-amd64_linux
-
 curl -LO https://fossil-scm.org/home/uv/fossil-linux-x64-2.22.tar.gz \
     && tar -xaf fossil-linux-x64-2.22.tar.gz \
     && sudo mv fossil /usr/local/bin/
 
-curl -LO https://github.com/martinvonz/jj/releases/download/v0.15.1/jj-v0.15.1-x86_64-unknown-linux-musl.tar.gz \
-    && mkdir jj-linux-musl \
-    && tar -xaf jj-v0.15.1-x86_64-unknown-linux-musl.tar.gz -C jj-linux-musl \
-    && sudo mv jj-linux-musl/jj /usr/local/bin/ \
-    && rm -r jj-linux-musl
-
-curl -LO https://github.com/Wilfred/difftastic/releases/download/0.57.0/difft-x86_64-unknown-linux-gnu.tar.gz \
-    && mkdir tmp \
-    && tar -xaf difft-x86_64-unknown-linux-gnu.tar.gz -C tmp \
-    && sudo mv tmp/difft /usr/local/bin/ \
-    && rm difft-x86_64-unknown-linux-gnu.tar.gz \
-    && rm -r tmp
-
-curl -LO https://github.com/extrawurst/gitui/releases/download/v0.27.0/gitui-linux-x86_64.tar.gz \
-    && mkdir gitui \
-    && tar -xaf gitui-linux-x86_64.tar.gz -C gitui \
-    && sudo mv gitui/gitui /usr/local/bin/ \
-    && rm gitui-linux-x86_64.tar.gz \
-    && rm -r gitui
-
-curl -LO https://github.com/wagoodman/dive/releases/download/v0.12.0/dive_0.12.0_linux_amd64.tar.gz \
-    && tar -zxvf dive_0.12.0_linux_amd64.tar.gz dive \
-    && sudo mv dive /usr/local/bin/ \
-    && rm dive_0.12.0_linux_amd64.tar.gz
-
 curl -LO https://dystroy.org/broot/download/x86_64-linux/broot \
     && chmod +x broot \
     && sudo mv broot /usr/local/bin/
-
-curl -LO https://github.com/yorukot/superfile/releases/download/v1.1.7.1/superfile-linux-v1.1.7.1-amd64.tar.gz \
-    && mkdir spf \
-    && tar -xaf superfile-linux-v1.1.7.1-amd64.tar.gz -C spf \
-    && sudo mv spf/dist/superfile-linux-v1.1.7.1-amd64/spf /usr/local/bin/ \
-    && rm superfile-linux-v1.1.7.1-amd64.tar.gz \
-    && rm -r spf
-
-curl -LO https://github.com/sxyazi/yazi/releases/download/v25.2.11/yazi-x86_64-unknown-linux-musl.zip \
-    && unzip yazi-x86_64-unknown-linux-musl.zip \
-    && sudo mv yazi-x86_64-unknown-linux-musl/yazi /usr/local/bin/ \
-    && sudo mv yazi-x86_64-unknown-linux-musl/ya /usr/local/bin/ \
-    && rm yazi-x86_64-unknown-linux-musl.zip \
-    && rm -r yazi-x86_64-unknown-linux-musl
-
-mkdir -p ~/.local/bin
-
-curl -LO https://github.com/kdash-rs/kdash/releases/download/v0.6.1/kdash-linux.tar.gz \
-    && mkdir kdash-linux \
-    && tar -xaf kdash-linux.tar.gz -C kdash-linux \
-    && sudo mv kdash-linux/kdash ~/.local/bin/ \
-    && rm kdash-linux.tar.gz \
-    && rm -r kdash-linux
-
-curl -LO https://github.com/zyedidia/micro/releases/download/v2.0.14/micro-2.0.14-linux64-static.tar.gz \
-    && mkdir micro-2.0.14-linux64 \
-    && tar -xaf micro-2.0.14-linux64-static.tar.gz -C micro-2.0.14-linux64 \
-    && sudo mv micro-2.0.14-linux64/micro-2.0.14/micro ~/.local/bin/ \
-    && rm micro-2.0.14-linux64-static.tar.gz \
-    && rm -r micro-2.0.14-linux64
