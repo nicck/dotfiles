@@ -43,6 +43,7 @@ nu -e '"\nalias ll = exa -a -lbF --git\n" | save --append $nu.config-path; exit'
 
 mkdir -p ~/.local/bin
 
+./eget cli/cli --to ~/.local/bin --asset="tar.gz"
 ./eget ekzhang/bore --to=~/.local/bin
 ./eget abs-lang/abs --to=~/.local/bin
 ./eget Nukesor/pueue --to=~/.local/bin --asset="pueue-"
