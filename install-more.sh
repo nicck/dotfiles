@@ -1,47 +1,6 @@
-# eget
-
-curl -o eget.sh https://zyedidia.github.io/eget.sh
-if echo "0e64b8a3c13f531da005096cc364ac77835bda54276fedef6c62f3dbdc1ee919  eget.sh" | shasum -a 256 -c -
-    then bash eget.sh
-    else echo "eget.sh SHA256 does not match"
-fi
-rm ./eget.sh
-
 # nushell
 
 sudo ./eget nushell/nushell --to=/usr/local/bin --asset="linux-musl" --file=nu
-
-# starship
-
-curl -sS -o install-starship.sh https://starship.rs/install.sh \
-    && chmod +x ./install-starship.sh \
-    && sudo ./install-starship.sh -y \
-    && rm ./install-starship.sh
-
-starship preset pure-preset -o ~/.config/starship.toml
-
-mkdir -p ~/.cache/starship
-starship init nu > ~/.cache/starship/init.nu
-
-nu -e '"\nuse ~/.cache/starship/init.nu\n" | save --append $nu.config-path; exit'
-
-# carapace
-
-sudo ./eget carapace-sh/carapace-bin --to=/usr/local/bin --asset="tar.gz" --file=carapace
-
-mkdir -p ~/.cache/carapace
-carapace _carapace nushell > ~/.cache/carapace/init.nu
-
-nu -e '"\nsource ~/.cache/carapace/init.nu\n" | save --append $nu.config-path; exit'
-
-# exa ll alias
-
-nu -e '"\nalias ll = exa -a -lbF --git\n" | save --append $nu.config-path; exit'
-# nu -e '"\ndef ll [] { ls | sort-by type }\n" | save --append $nu.config-path; exit'
-
-# .local/bin
-
-mkdir -p ~/.local/bin
 
 ./eget cli/cli --to ~/.local/bin --asset="tar.gz"
 ./eget ekzhang/bore --to=~/.local/bin

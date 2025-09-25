@@ -1,6 +1,16 @@
 cp -f .zshrc $HOME/.zshrc
 cp -f .gitignore $HOME/.gitignore
 sed "s:HOME_DIR:$HOME:g" .gitconfig > $HOME/.gitconfig
+mkdir -p ~/.local/bin
 
-curl -L -o file.deb https://github.com/dandavison/delta/releases/download/0.15.1/git-delta-musl_0.15.1_amd64.deb \
-    && sudo dpkg -i file.deb && rm file.deb
+# eget
+
+curl -o eget.sh https://zyedidia.github.io/eget.sh
+if echo "0e64b8a3c13f531da005096cc364ac77835bda54276fedef6c62f3dbdc1ee919  eget.sh" | shasum -a 256 -c -
+    then bash eget.sh
+    else echo "eget.sh SHA256 does not match"
+fi
+rm ./eget.sh
+mv ./eget ~/.local/bin/eget
+
+~/.local/bin/eget dandavison/delta --to ~/.local/bin
