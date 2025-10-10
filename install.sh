@@ -14,3 +14,4 @@ rm ./eget.sh
 mv ./eget ~/.local/bin/eget
 
 ~/.local/bin/eget dandavison/delta --to ~/.local/bin --asset=musl
+~/.local/bin/eget eza-community/eza --to ~/.local/bin --asset=musl.zip
