@@ -13,4 +13,4 @@ fi
 rm ./eget.sh
 mv ./eget ~/.local/bin/eget
 
-~/.local/bin/eget dandavison/delta --to ~/.local/bin
+~/.local/bin/eget dandavison/delta --to ~/.local/bin --asset=musl
