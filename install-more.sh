@@ -12,6 +12,7 @@ sudo ./eget nushell/nushell --to=/usr/local/bin --asset="linux-musl" --file=nu
 ./eget Wilfred/difftastic --to=~/.local/bin
 ./eget extrawurst/gitui --to=~/.local/bin
 ./eget wagoodman/dive --to=~/.local/bin
+./eget tokuhirom/dcv --to=~/.local/bin
 ./eget yorukot/superfile --to=~/.local/bin
 ./eget sxyazi/yazi --to=~/.local/bin
 ./eget kdash-rs/kdash --to=~/.local/bin
